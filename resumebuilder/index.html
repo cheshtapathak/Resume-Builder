@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="style.css"/>
+    
+    <title>Resume Generator</title>
+</head>
+<body>
+    <div class="container" id="resume-form">
+        <h1 class="text-center my-2">Resume Generator</h1>
+        <p class="text-center">Cheshta Pathak</p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <!-- first col  -->
+                <h3>Personal Information</h3>
+
+                <div class="form-group">
+                    <label for="nameField">Your Name</label>
+                    <input type="text" class="form-control" id="nameField" placeholder="Enter Here">
+                </div>
+
+                <div class="form-group mt-2">
+                    <label for="contactField">Your Contact</label>
+                    <input type="text" class="form-control" id="contactField" placeholder="Enter Here">
+                </div>
+
+                <div class="form-group mt-2">
+                    <label for="addressField">Your Address</label>
+                    <textarea 
+                    class="form-control" id="addressField" placeholder="Enter Here" rows="5">
+                    </textarea>
+                </div>
+
+                <p class="text-secondary my-3">Important Links</p>
+
+                <div class="form-group mt-2">
+                    <label for="linkedin">Linkedin</label>
+                    <input  type="text" id="linkedinField" placeholder="Enter Here" class="form-control"/>
+                    
+                </div>
+
+                <div class="form-group mt-2">
+                    <label for="github">GitHub</label>
+                    <input  type="text" id="githubField" placeholder="Enter Here" class="form-control"/>
+                    
+                </div>
+
+                <div class="form-group mt-2">
+                    <label for="leetcode">LeetCode</label>
+                    <input  type="text" id="leetcodeField" placeholder="Enter Here" class="form-control"/>
+                    
+                </div>
+    </div>
+    <div class="col-md-6">
+        <!-- second col  -->
+        <h3>Professional Information</h3>
+
+        <!-- adding rows to make it look  -->
+
+        <div class="form-group mt-2">
+            <label for="">Objective</label>
+            <textarea 
+            id="objectiveField" class="form-control" placeholder="Enter Here" rows="5">
+            </textarea>
+        </div>
+
+        <div class="form-group mt-2" id="we">
+            <label for="">Work Experience</label>
+            <textarea class="form-control weField" placeholder="Enter Here" rows="3">
+            </textarea>
+
+            <!-- new textarea  -->
+
+            <div class="container text-center mt-3" id="weAddButton">
+                <button onclick="addNewWEField()" class="btn btn-primary btn-sm">Add</button>
+            </div>
+        </div>
+
+        <div class="form-group mt-2" id="aq">
+            <label for="">Academic Qualification</label>
+            <textarea 
+            class="form-control eqField" placeholder="Enter Here" rows="3">
+            </textarea>
+
+            <div class="container text-center mt-2" id="aqAddButton">
+                <button onclick="addNewAQField()" class="btn btn-primary btn-sm">Add</button>
+            </div>
+        </div>
+    </div>    
+        </div>
+        
+        <div class="container text-center mt-3">
+            <button onclick="generateResume()" class="btn btn-primary btn-lg">Generate Resume</button>
+        </div>
+    </div>
+
+    <!-- resume template -->
+    <div class="container" id="resume-template">
+        <div class="row">
+            <div class="col-md-4 text-center py-5 background">
+
+                <!-- first col -->
+                <img src="logo.png " alt=""
+                class="img-fluid myimg">
+
+                <div class="container">
+                    <p id="nameT1">xyz</p>
+                    <p id="contactT">+91xxxxxxxxxx</p>
+                    <p id="addressT">x sector,India</p>
+                    <hr>
+
+                    <p>
+                        <a id="linkedinT" href="#1">https://www.linkedin.com/in/cheshta-pathak-7375301ba/</a>
+                    </p>
+                    <p>
+                        <a id="leetcodeT" href="#2">https://leetcode.com/cheshtapathak/</a>
+                    </p>
+                    <p>
+                        <a id="githubT" href="#3">https://github.com/cheshtapathak</a>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-8 py-5">
+                <!-- second col -->
+                <h1 id="nameT2" class="text-center" style="font-weight:980">Cheshta Pathak</h1>
+
+                <!-- objective card -->
+
+                <div class="card mt-4">
+                    <div class="card-header background">
+                        <h3>Objective</h3>
+                    </div>
+                    <div class="card-body">
+                        <p id="objectiveT">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab rem nesciunt rerum nostrum unde ipsa accusantium fugit ipsam, dignissimos saepe dolor beatae! Sequi tenetur eum, rerum ratione aliquid numquam illo!</p>
+                    </div>
+                </div>
+
+                <!-- work experience -->
+
+                <div class="card mt-4">
+                    <div class="card-header background">
+                        <h3>Work Experience</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul id="weT">
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias dolor inventore ullam blanditiis accusantium, ipsam dignissimos exercitationem at, cum nisi esse nam voluptatibus iure voluptatem molestiae! Dolorem tempora temporibus architecto?</li>
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias dolor inventore ullam blanditiis accusantium, ipsam dignissimos exercitationem at, cum nisi esse nam voluptatibus iure voluptatem molestiae! Dolorem tempora temporibus architecto?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- academic qualification -->
+                <div class="card mt-4">
+                    <div class="card-header background">
+                        <h3>Academic Qualification</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul id="aqT">
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias dolor inventore ullam blanditiis accusantium, ipsam dignissimos exercitationem at, cum nisi esse nam voluptatibus iure voluptatem molestiae! Dolorem tempora temporibus architecto?</li>
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias dolor inventore ullam blanditiis accusantium, ipsam dignissimos exercitationem at, cum nisi esse nam voluptatibus iure voluptatem molestiae! Dolorem tempora temporibus architecto?</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="container mt-3 text-center">
+                    <button onclick="printResume()" class="btn background">Print Resume</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <!-- here goes html  -->
+    <script src="script.js"></script>
+</body>
+</html>
